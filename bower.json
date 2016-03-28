@@ -1,0 +1,29 @@
+{
+  "name": "storage-js",
+  "description": "Storage-JS is a database menagement for localStorage. You can store data on local storage easily and APIs like Yii Framework AR",
+  "main": "index.js",
+  "authors": [
+    "Dida Nurwanda"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "localStorage",
+    "storage-js",
+    "storage",
+    "nwjs",
+    "ORM",
+    "ORM-JS",
+    "ActiveRecord",
+    "nwjs",
+    "storage"
+  ],
+  "homepage": "https://github.com/didanurwanda/storage-js",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
