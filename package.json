@@ -1,6 +1,6 @@
 {
   "name": "storage-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Storage-JS is a database menagement for localStorage. You can store data on local storage easily and APIs like Yii Framework AR",
   "main": "storage.js",
   "scripts": {
@@ -25,6 +25,7 @@
     "localStorage ActiveRecord",
     "nwjs ActiveRecord",
     "nwjs ORM",
+    "nwjs localStorage",
     "Angular",
     "AngularJS",
     "Angular ActiveRecord",

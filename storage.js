@@ -98,7 +98,7 @@
                     return result;
                 }
             },
-            findByAttribute(key, val, callback) {
+            findByAttribute: function(key, val, callback) {
                 var find = _storage.findAllByAttribute(key, val);
                 var result = null;
                 if (find.length > 0) {
