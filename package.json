@@ -1,8 +1,8 @@
 {
   "name": "storage-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Storage-JS is a database menagement for localStorage. You can store data on local storage easily and APIs like Yii Framework AR",
-  "main": "index.js",
+  "main": "storage.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +18,19 @@
     "ORM",
     "ORM-JS",
     "ActiveRecord",
-    "nwjs storage"
+    "nwjs storage",
+    "localStorage JSON",
+    "localStorage ORM",
+    "localStorage AR",
+    "localStorage ActiveRecord",
+    "nwjs ActiveRecord",
+    "nwjs ORM",
+    "Angular",
+    "AngularJS",
+    "Angular ActiveRecord",
+    "AngularJS ActiveRecord",
+    "Angular localStorage",
+    "AngularJS localStorage"
   ],
   "author": "Dida Nurwanda",
   "license": "MIT",

@@ -19,14 +19,66 @@ npm install storage-js --save
 or download [here](https://github.com/didanurwanda/storage-js/archive/master.zip)
 
 ```HTML
-<script type="text/javascript" src="bower_components/storage-js/index.js"></script>
+<script type="text/javascript" src="path/to/storage-js/storage.js"></script>
 ```
 
-## Quick Start
+## Define
 
+NodeJS
+
+```JavaScript
+var storagejs = require('storage-js');
+```
+
+RequireJS
+
+```JavaScript
+define([
+	'/bower_components/storage-js/storage.js'
+], function(storagejs) {
+	// your code
+});
+```
+
+or global variable name '*storagejs*'
+
+## Callback
+Callback Async
+
+```JavaScript
+storagejs('tableName').yourMethod(your_arguments, function(err, result) {
+	// all method use this callback format (err, result)
+	// for check error
+	if (err === null) {
+		// not error
+	} else {
+		console.log(err) // error message
+	}
+});
+```
+Callback Sync
+
+* all method for Reading Record, return result data
+* all method for Create, Update, Delete Record, return error message
+
+```JavaScript
+var result = storagejs('tableName').all();
+console.log(result)
+
+var error = storagejs('tableName').insert({_id: 1, name: 'Storage JS'});
+if (error === null) {
+	alert('success')
+} else {
+	alert(error);
+}
+
+```
+## Quick Start
 All method support Sync and Async. for example, this use Async method.
 
-### Creating Record
+*table require id for primary key, default attribute name '_id'*
+
+## Creating Record
 
 * insert(id, object)
 * insert(object)
@@ -86,7 +138,7 @@ storagejs('tableName').batchInsert(attrs, function(err, result) {
 ``` 
 
 
-###  Reading Record
+##  Reading Record
 
 * all()
 * findById(id)
@@ -177,7 +229,7 @@ storagejs('tableName').findIndexById('didanurwanda', function(err, result) {
 });
 ```
 
-### Update Record
+## Update Record
 
 * updateById(id, object)
 * updateAllByAttributes(objectFinder, objectAttr)
@@ -213,7 +265,7 @@ storagejs('tableName').updateAllByAttributes(findAttr, newDataAttr, function(err
 });
 ```
 
-### Delete Record
+## Delete Record
 
 * deleteById(id)
 * deleteAllByAttribute(key, val)
@@ -260,7 +312,7 @@ storagejs('tableName').deleteAll(function(err, result) {
 });
 ```
 
-### Remove Schema
+## Remove Table
 
 ```JavaScript
 storagejs('tableName').remove(function(err, result) {
