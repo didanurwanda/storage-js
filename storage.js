@@ -8,6 +8,9 @@
     }
 })(this, function() {
     return function(tableName) {
+        var prefix = '_storage_js_';
+        tableName = tableName === undefined ? 'storagejs' : tableName;
+        tableName = prefix + tableName;
         var error = null;
         var localData = localStorage[tableName] ? JSON.parse(localStorage[tableName]) : [];
         var objectLength = function(obj) {
@@ -57,15 +60,10 @@
                     return result;
                 }
             },
-            findAll: function(attr, callback) {
-                var result = _storage.findAllByAttributes(attr);
-                if (callback) {
-                    callback(error, result);
-                } else {
-                    return result;
-                }
+            findAll: function(attr, limit, offset, callback) {
+                return _storage.findAllByAttributes(attr, limit, offset, callback);
             },
-            findAllByAttributes: function(attr, callback) {
+            findAllByAttributes: function(attr, limit, offset, callback) {
                 var result = [];
                 var attrLength = objectLength(attr);
                 for (var localIndex in localData) {
@@ -79,24 +77,16 @@
                         result.push(localData[localIndex]);
                     }
                 }
-                if (callback) {
-                    callback(error, result);
-                } else {
-                    return result;
-                }
+                return _storage.limit(result, limit, offset, callback);
             },
-            findAllByAttribute: function(key, val, callback) {
+            findAllByAttribute: function(key, val, limit, offset, callback) {
                 var result = [];
                 for (var $index in localData) {
                     if (localData[$index][key] == val) {
                         result.push(localData[$index]);
                     }
                 }
-                if (callback) {
-                    callback(error, result);
-                } else {
-                    return result;
-                }
+                return _storage.limit(result, limit, offset, callback);
             },
             findByAttribute: function(key, val, callback) {
                 var find = _storage.findAllByAttribute(key, val);
@@ -110,11 +100,49 @@
                     return result;
                 }
             },
-            all: function(callback) {
-                if (callback) {
-                    callback(error, localData);
+            all: function(limit, offset, callback) {
+                return _storage.limit(localData, limit, offset, callback);
+            },
+            limit: function(arr, _limit, _offset, _callback) {
+
+                var callback = _limit;
+                var limit = null;
+                var offset = null;
+                var backupArray = [];
+
+                if (typeof _limit === 'number') {
+                    limit = _limit;
+                    callback = _offset;
+                }
+                if (typeof _offset === 'number') {
+                    offset = _offset;
+                    callback = _callback;
+                }
+
+                if (limit !== null)  {
+                    var no = 0;
+                    var no_offset = 0;
+                    for(var i in arr) {
+                        if (offset === null) {
+                            if (no < limit) {
+                                backupArray.push(arr[i]);
+                            }
+                        } else {
+                            if (no >= offset && no_offset < limit) {
+                                backupArray.push(arr[i]);
+                                no_offset++;
+                            }
+                        }
+                        no++;
+                    }
                 } else {
-                    return localData;
+                    backupArray = arr;
+                }
+
+                if (callback) {
+                    callback(error, backupArray);
+                } else {
+                    return backupArray;
                 }
             },
             insert: function(id, attr, callback) {
