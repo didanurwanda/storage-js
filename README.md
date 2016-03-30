@@ -16,7 +16,7 @@ NPM
 npm install storage-js --save
 ```
 
-or download [here](https://github.com/dida/storage-js/archive/master.zip)
+or download [here](https://github.com/didanurwanda/storage-js/archive/master.zip)
 
 ```HTML
 <script type="text/javascript" src="path/to/storage-js/storage.js"></script>
@@ -34,9 +34,9 @@ RequireJS
 
 ```JavaScript
 define([
-    '/bower_components/storage-js/storage.js'
+	'/bower_components/storage-js/storage.js'
 ], function(storagejs) {
-    // your code
+	// your code
 });
 ```
 
@@ -47,13 +47,13 @@ Callback Async
 
 ```JavaScript
 storagejs('tableName').yourMethod(your_arguments, function(err, result) {
-    // all method use this callback format (err, result)
-    // for check error
-    if (err === null) {
-        // not error
-    } else {
-        console.log(err) // error message
-    }
+	// all method use this callback format (err, result)
+	// for check error
+	if (err === null) {
+		// not error
+	} else {
+		console.log(err) // error message
+	}
 });
 ```
 Callback Sync
@@ -67,9 +67,9 @@ console.log(result)
 
 var error = storagejs('tableName').insert({_id: 1, name: 'Storage JS'});
 if (error === null) {
-    alert('success')
+	alert('success')
 } else {
-    alert(error);
+	alert(error);
 }
 
 ```
@@ -88,29 +88,29 @@ Insert record
 
 ```JavaScript
 var attr = {
-    name: 'Dida Nurwanda',
-    age: 23,
-    city: 'Pandeglang'
+	name: 'Dida Nurwanda',
+	age: 23,
+	city: 'Pandeglang'
 }
 storagejs('tableName').insert('dida', attr, function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ``` 
 or
 
 ```JavaScript
 var attr = {
-    _id: 'dida',
-    name: 'Dida Nurwanda',
-    age: 23,
-    city: 'Pandeglang'
+	_id: 'dida',
+	name: 'Dida Nurwanda',
+	age: 23,
+	city: 'Pandeglang'
 }
 storagejs('tableName').insert(attr, function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ``` 
 Insert multiple record
@@ -118,22 +118,22 @@ Insert multiple record
 ```JavaScript
 var attrs = [
     {
-        _id: 'dida',
-        name: 'Dida Nurwanda',
-        age: 23,
-        city: 'Pandeglang'
+    	_id: 'dida',
+    	name: 'Dida Nurwanda',
+    	age: 23,
+    	city: 'Pandeglang'
     },
     {
-        _id: 'septi',
-        name: 'Siwi Septi Hastuti',
-        age: 11,
-        city: 'Pandeglang'
+    	_id: 'septi',
+    	name: 'Siwi Septi Hastuti',
+    	age: 11,
+    	city: 'Pandeglang'
     }
 ]
 storagejs('tableName').batchInsert(attrs, function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ``` 
 
@@ -153,9 +153,9 @@ Get all record
 
 ```JavaScript
 storagejs('tableName').all(function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -163,9 +163,9 @@ Find record by ID
 
 ```JavaScript
 storagejs('tableName').findById('dida', function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -173,9 +173,9 @@ Find the first row satisfying the specified condition
 
 ```JavaScript
 storagejs('tableName').findByAttribute('_id', 'dida', function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -183,9 +183,9 @@ Find the row with the specified attribute values
 
 ```JavaScript
 storagejs('tableName').findByAttributes({age: '23', city: 'Pandeglang'}, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -193,9 +193,9 @@ Find all rows satisfying the specified condition
 
 ```JavaScript
 storagejs('tableName').findAllByAttribute('id', 'dida', function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -203,9 +203,9 @@ Find all row with the specified attribute values
 
 ```JavaScript
 storagejs('tableName').findAllByAttributes({age: '23', city: 'Pandeglang'}, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -213,9 +213,9 @@ or
 
 ```JavaScript
 storagejs('tableName').findAll({age: '23', city: 'Pandeglang'}, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -223,9 +223,9 @@ Find position index row by id
 
 ```JavaScript
 storagejs('tableName').findIndexById('dida', function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 ```
 
@@ -242,28 +242,28 @@ to use it, limit or a limit and offset inserted after attribute condition.
 ```JavaScript
 // limit only
 storagejs('tableName').findAll({city: 'Pandeglang'}, 5, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 
 storagejs('tableName').all(5, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 
 // limit and offset
 storagejs('tableName').findAll({city: 'Pandeglang'}, 5, 3, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 
 storagejs('tableName').all(5, 3, function(err, result) {
-    if (err === null) {
-        console.log(result)
-    }
+	if (err === null) {
+		console.log(result)
+	}
 });
 
 ```
@@ -278,12 +278,12 @@ Update the rows matching the specified condition
 
 ```JavaScript
 var attr = {
-    city: 'Serang'
+	city: 'Serang'
 }
 storagejs('tableName').updateById('dida', attr, function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 
@@ -291,16 +291,16 @@ Update all rows matching the specified condition
 
 ```JavaScript
 var findAttr = {
-    city: 'Pandeglang'
+	city: 'Pandeglang'
 }
 var newDataAttr = {
-    city: 'Serang'
+	city: 'Serang'
 }
 
 storagejs('tableName').updateAllByAttributes(findAttr, newDataAttr, function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 
@@ -315,39 +315,39 @@ Delete the rows matchin ID
 
 ```JavaScript
 storagejs('tableName').deleteById('dida', function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 Delete all rows matching the specified condition
 
 ```JavaScript
 storagejs('tableName').deleteAllByAttribute('city', 'Pandeglang', function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 Delete all row with the specified attribute values
 
 ```JavaScript
 var attr = {
-    city: 'Pandeglang'
+	city: 'Pandeglang'
 }
 storagejs('tableName').deleteAllByAttributes(attr, function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 Delete all record
 
 ```JavaScript
 storagejs('tableName').deleteAll(function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 
@@ -355,11 +355,11 @@ storagejs('tableName').deleteAll(function(err, result) {
 
 ```JavaScript
 storagejs('tableName').remove(function(err, result) {
-    if (err === null) {
-        // your code
-    }
+	if (err === null) {
+		// your code
+	}
 });
 ```
 
 ## Contributor
-* [Dida Nurwanda](http://www.dida.com)
+* [Dida Nurwanda](http://www.didanurwanda.com)
